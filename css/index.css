@@ -1,0 +1,1134 @@
+@font-face {
+    font-family: 'TC';
+    src: url(../font/TcOctoberRegular-e9jgO.otf);
+}
+@font-face {
+    font-family: 'open';
+    src: url(../font/open-sauce.sans-black.ttf);
+}
+body {
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+    overflow: hidden;
+
+}
+.pag1 {
+    margin: 0;
+    background-color: #f3eef8;
+    width: 100%;
+    height: 100vh;
+}
+.imgCachoro {
+    position: absolute;
+    top: 41%;
+    left: 10%;
+    width: 36%;
+    z-index: 1;
+    height: 67%;
+    animation: animar-esquerda-cachorro linear;
+    animation-timeline: view();
+    animation-range-start: entry 0% cover 30%;
+}
+.imgCachoro img {
+    width: 100%;
+    height: 100%;
+}
+.imgManchinhas {
+    position: absolute;
+    top: 53%;
+    left: -37%;
+    transform: rotate(10deg);
+    z-index: 1;
+    width: 70%;
+    height: 70%;
+    animation: animar-esquerda-manchinhas linear;
+    animation-timeline: view();
+    animation-range-start: entry 0% cover 30%;
+}
+.imgManchinhas img {
+    width: 100%;
+    height: 100%;
+}
+.textoConhecer {
+    position: absolute;
+    top: 3%;
+    line-height: 0.8;
+    z-index: 1;
+    left: 25%;
+    text-align: right;
+    font-size: 4.2rem;
+    animation: animar-esquerda linear;
+    animation-timeline: view();
+    animation-range-start: entry 0% cover 30%;
+}
+.textoConhecer h1 {
+    width: 100%;
+    color: #fcdf78;
+    height: 100%;
+    word-spacing: -10px;
+    font-family: 'open';
+}
+.textoPetshop {
+    line-height: 0.9;
+    position: absolute;
+    top: -15%;
+    z-index: 0;
+    left: 56%;
+    font-size: 12rem;
+    font-family: 'TC';
+    animation: animar-direita linear;
+    animation-timeline: view();
+    animation-range-start: entry 0% cover 30%;
+}
+.textoPetshop h1 {
+    color: #d9bbf8;
+    width: 100%;
+    height: 100%;
+    word-spacing: -10px;
+}
+.estrelinha {
+    position: absolute;
+    top: 25%;
+    left: 82%;
+    width: 110px;
+    height: 160px;
+    animation: animar-direita linear;
+    animation-timeline: view();
+    animation-range-start: entry 0% cover 30%;
+}
+.estrelinha img {
+    width: 100%;
+    height: 100%;
+}
+.rabisco {
+    position: absolute;
+    top: 80%;
+    left: 52%;
+    width: 750px;
+    height: 150px;
+    animation: animar-direita-rabisco linear;
+    animation-timeline: view();
+    animation-range-start: entry 0% cover 30%;
+}
+.rabisco img {
+    width: 100%;
+    height: 100%;
+}
+header {
+    position: fixed;
+    z-index: 10;
+    margin: 10px;
+    top: 0;
+    left: 8%;
+    width: 83%;
+    display: flex;
+    height: 10%;
+    justify-content: space-between;
+    border-radius: 250px;
+    background-color: white;
+}
+.logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    top: 10px;
+    position: relative;
+    left: 30px;
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    font-family: 'TC';
+    font-size: 1.8rem;
+}
+.logo img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+.logo h5 {
+    position: relative;
+    top: -20px;
+}
+.menu {
+    display: flex;
+    position: relative;
+    left: 0px;
+    top: 0;
+    font-family: 'TC';
+    font-size: 1.8rem;
+}
+.menu a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    margin: 0 20px;
+}
+.menu a::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Inicia no meio */
+    bottom: 0; /* Coloca no final do texto */
+    width: 0; /* Largura inicial */
+    height: 2px; /* Espessura da linha */
+    background: black; /* Cor da linha */
+    transition: all 0.3s ease-out; /* Animação suave */
+    transform: translateX(-50%);
+}
+.menu a:hover::after {
+    width: 100%; /* Largura total */
+    left: 0;
+    transform: none;
+}
+.logo a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    margin: 0 20px;
+}
+.logo a::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Inicia no meio */
+    bottom: 0; /* Coloca no final do texto */
+    width: 0; /* Largura inicial */
+    height: 2px; /* Espessura da linha */
+    background: black; /* Cor da linha */
+    transition: all 0.3s ease-out; /* Animação suave */
+    transform: translateX(-50%);
+}
+.logo a:hover::after {
+    width: 100%; /* Largura total */
+    left: 0;
+    transform: none;
+}
+.signUp {
+    background-color: transparent;
+    background-image: url('../imagens/sign_up_petshop.png'); /* Caminho da imagem */
+    background-size: cover; /* Ajusta a imagem para cobrir o botão */
+    background-position: center; /* Centraliza a imagem */
+    width: 160px; /* Largura do botão */
+    height: 112px; /* Altura do botão */
+    border: none; /* Remove a borda padrão */
+    cursor: pointer; /* Mostra o cursor de clique */
+}
+.signUp:hover {
+    transform: scale(1.1); /* Aumenta o tamanho do botão */
+    transition: 1s;
+}
+.pag2 {
+    position: absolute;
+    top: 100vh;
+    width: 100%;
+    background-color: #d9bbf8;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    z-index: 4;
+}
+.fundoBranco {
+    position: relative;
+    width: 45%;
+    height: 100vh;
+    top: -42px;
+    background-color: #f3eef8;
+}
+.fundoBranco h1 {
+    font-family: 'open';
+    font-size: 3.9rem;
+    color: #fcdf78;
+    position: relative;
+    top: 15%;
+    left: -37%;
+    text-align: right;
+    animation: animar-esquerda-texto-humano linear;
+    animation-timeline: view();
+    animation-range-start: entry 0% cover 30%;
+}
+.imgCachorroOlhandoProAlto {
+    position: absolute;
+    width: 40%;
+    height: 79%;
+    top: 20%;
+    left: 20%;
+    animation: animar-esquerda-cachorro2 linear;
+    animation-timeline: view();
+    animation-range-start: entry 0% cover 30%;
+}
+.imgCachorroOlhandoProAlto img {
+    width: 100%;
+    height: 100%;
+}
+.rabisco2 {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    width: 30%;
+    animation: animar-esquerda-rabisco2 linear;
+    animation-timeline: view();
+    animation-range-start: entry 0% cover 30%;
+}
+.rabisco2 img {
+    width: 100%;
+    height: 100%;
+}
+.estrelinha2 {
+    position: absolute;
+    top: 39%;
+    left: 52%;
+    width: 110px;
+    animation: pulsar-estrela2 2.5s linear infinite;
+    height: 160px;
+}
+.estrelinha2 img {
+    width: 100%;
+    height: 100%;
+}
+.textoSobreNos {
+    position: absolute;
+    top: 20%;
+    left: 80%;
+    text-align: left;
+    width: 600px;
+    font-size: 0.8rem;
+    font-family: 'open';
+    color: #5271ff;
+    animation: animar-direita-texto2 linear;
+    animation-timeline: view();
+    animation-range-start: entry 0% cover 30%;
+}
+@keyframes animar-direita {
+    0% {
+        opacity: 0;
+        transform: translateX(-200%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+}
+@keyframes animar-direita-rabisco {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(20%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+@keyframes animar-esquerda {
+    0% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(52%);
+    }
+    100% {
+        opacity: 0.8;
+        transform: translateX(-150%);
+    }
+}
+@keyframes animar-esquerda-cachorro {
+    0% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-20%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+@keyframes animar-esquerda-manchinhas {
+    0% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-80%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+@keyframes animar-esquerda-cachorro2 {
+    0% {
+        opacity: 0;
+        left: 0%;
+    }
+    50% {
+        opacity: 1;
+        left: 23%;
+    }
+    100% {
+        opacity: 1;
+        right: 100%;
+    }
+}
+@keyframes animar-esquerda-texto-humano {
+    0% {
+        opacity: 1;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+}
+@keyframes animar-esquerda-rabisco2 {
+    0% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(10%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+@keyframes animar-direita-texto2 {
+    0% {
+        opacity: 0;
+        transform: translateX(0%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-100%);
+    }
+}
+@keyframes pulsar-estrela2 {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.pag3 {
+    position: absolute;
+    top: 200vh;
+    width: 100%;
+    background-color: #d9bbf8;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    z-index: 4;
+}
+.bolaBranca {
+    position: absolute;
+    width: 1350px;
+    top: 0px;
+    left: -10%;
+    height: 850px;
+    z-index: 1;
+    clip-path: circle(66.4% at 27% 10%);
+    background-color: #f3eef8;
+}
+.rabiscoAzul {
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    top: 40%;
+    z-index: 3;
+    left: 15%;
+}
+.rabiscoAzul img {
+    width: 100%;
+    height: 100%;
+}
+.nossosServicos {
+    position: absolute;
+    font-size: 3.5rem;
+    top: 2%;
+    text-align: left;
+    color: #5271ff;
+    z-index: 1;
+    font-family: 'open';
+    animation: nossos_servicos linear;
+    animation-range-start: entry 0% cover 30%;
+    animation-timeline: view();
+}
+.cachorroComBolinha {
+    position: absolute;
+    top: -10%;
+    left: -40%;
+    width: 550px !important;
+    height: 550px !important;
+    animation: cachorro_bolinha linear;
+    animation-range-start: entry 0% cover 30%;
+    animation-timeline: view();
+}
+
+#banhoTosa{
+    background-color: #5271ff;
+    position: absolute;
+    top: 16%;
+    left: 55%;
+    border-radius: 20px;
+    z-index: -1;
+}
+#banhoTosa:hover , #banhoTosa2:hover{
+    transform: scale(0.97);
+    transition: 1s;
+}
+#banhoTosa2{
+    width: 330px;
+    height: 300px;
+    background-color: #fd7f84;
+    background-image: url('../imagens/banhoTosa_petshop.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 250px;
+    border-radius: 25px;
+    left: 20px;
+    position: relative;
+    cursor: pointer;
+    top: 25px;
+    z-index: 2;
+}
+#consulta{
+    background-color: #5271ff;
+    position: absolute;
+    top: 16%;
+    width: 300px;
+    height: 300px;
+    left: 75%;
+    border-radius: 20px;
+    z-index: 2;
+}
+#consulta:hover , #consulta2:hover{
+    transform: scale(0.97);
+    transition: 1s;
+}
+#consulta2{
+    width: 330px;
+    height: 300px;
+    background-color: #fd7f84;
+    background-image: url('../imagens/consulta_petshop.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 250px;
+    border-radius: 25px;
+    left: 20px;
+    position: relative;
+    cursor: pointer;
+    top: 25px;
+    z-index: 2;
+}
+#vacinacao{
+    background-color: #5271ff;
+    position: absolute;
+    top: 56%;
+    width: 300px;
+    height: 300px;
+    left: 55%;
+    border-radius: 20px;
+    z-index: 2;
+}
+#vacinacao:hover , #vacinacao2:hover{
+    transform: scale(0.97);
+    transition: 1s;
+}
+#vacinacao2{
+    width: 330px;
+    height: 300px;
+    background-color: #fd7f84;
+    background-image: url('../imagens/vacinacao_petshop.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 250px;
+    border-radius: 25px;
+    left: 20px;
+    position: relative;
+    cursor: pointer;
+    top: 25px;
+    z-index: 2;
+}
+#hotelPet{
+    background-color: #5271ff;
+    position: absolute;
+    top: 56%;
+    width: 300px;
+    height: 300px;
+    left: 75%;
+    border-radius: 20px;
+    z-index: 2;
+}
+#hotelPet:hover , #hotelPet2:hover{
+    transform: scale(0.97);
+    transition: 1s;
+}
+#hotelPet2{
+    width: 330px;
+    height: 300px;
+    background-color: #fd7f84;
+    background-image: url('../imagens/hotelpet_petshop.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 250px;
+    border-radius: 25px;
+    left: 20px;
+    position: relative;
+    cursor: pointer;
+    top: 25px;
+    z-index: 2;
+}
+@keyframes animar_caixa {
+    0% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-100%);
+    }
+}
+@keyframes cachorro_bolinha{
+    0%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(100%);
+    }
+}
+@keyframes nossos_servicos{
+    0%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(100%);
+    }
+}
+.animar_caixas {
+    left: 50%;
+    justify-content: space-between;
+    width: 2000px;
+    height: 900px;
+    position: absolute;
+    animation: animar_caixa linear;
+    animation-range-start: entry 0% cover 30%;
+    animation-timeline: view();
+}
+.pag4{
+    position: absolute;
+    top: 300vh;
+    width: 100%;
+    height: 100vh;
+    background-color: #d9bbf8;
+}
+.quadradoDividido{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 100vh;
+    top: 0;
+    left: 50%;
+}
+.quadrado1{
+    position: relative;
+    top: 0;
+    margin: 0;
+    height: 47%;
+    width: 100%;
+    background-color: #fcdf78;
+
+}
+.quadrado2{
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: 53%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3eef8;
+}
+.quadrado1 h1{
+    position: relative;
+    font-family: 'open';
+    font-size: 7rem;
+    color: white;
+    left: 78%;
+    transform: translate(-50%);
+    top: 10%;
+}
+.promoBasico{
+    position: relative;
+    background-image: url(../imagens/basico_petshop.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 350px;
+    width: 400px;
+    height: 200px;
+    border-radius: 50px;
+    left: 29%;
+    top: 20px;
+    background-color: #fd7f84;
+}
+.promoCompleto{
+    position: relative;
+    background-image: url(../imagens/completo_petshop.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 350px;
+    width: 400px;
+    height: 200px;
+    border-radius: 50px;
+    left: 29%;
+    z-index: 2;
+    background-color: #fd7f84;
+    top: 60px;
+}
+.cachorroEmPe{
+    position: relative;
+    width: 30%;
+    height: 80%;
+    top: 18%;
+    z-index: 1;
+    left: 35%;
+}
+.cachorroEmPe img{
+    width: 100%;
+    height: 100%;
+}
+.estrelinhaBranca{
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    top: 23%;
+    left: 35%;
+    animation: pulsar-estrela2 2.5s linear infinite;
+}
+.estrelinhaBranca img{
+    width: 100%;
+    height: 100%;
+}
+.textoBanhoTosa{
+    position: relative;
+    width: 550px;
+    top: -60%;
+    left: 80px;
+    line-height: 45px;
+    color: white;
+    font-family: 'open';
+    font-size: 0.8rem;
+    text-align: left;
+}
+.pag5{
+    position: absolute;
+    top: 400%;
+    width: 100%;
+    margin: 0;
+    height: 100vh;
+    background-color: #d9bbf8;
+}
+.rabiscoPag5{
+    position: absolute;
+    width: 40%;
+    height: 300px;
+    transform: rotate(-10deg);
+    top: 50px;
+}
+.rabiscoPag5 img{
+    width: 100%;
+    height: 100%;
+}
+.manchinhasBrancasPag5{
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    left: 5%;
+    top: 2%;
+    z-index: 3;
+}
+.manchinhasBrancasPag5 img{
+    width: 100%;
+    height: 100%;
+}
+.gato{
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    z-index: 3;
+    left: 5%;
+    bottom: 0;
+}
+.gato img{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    position: relative;
+    width: 800px;
+    left: 50%;
+    top: 7%;
+    height: 800px;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'open';
+}
+.textoConsulta{
+    font-size: 6.5rem;
+}
+.divAmarela{
+    position: relative;
+    display: flex;
+    background-color: #fcdf78;
+    margin-bottom: 30px;
+    color: #5271ff;
+    justify-content: space-around;
+    padding: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 45px;
+    font-size: 0.9rem;
+}
+.pag6{
+    position: absolute;
+    top: 500%;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #d9bbf8;
+}
+.containerPag6{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    left: 50%;
+    top: 12%;
+    text-align: center;
+    transform: translate(-50%);
+    height: 600px;
+}
+.vacinacaoh1{
+    margin-top: 0;
+    font-family: 'open';
+    color: #5271ff;
+    font-size: 5.5rem;
+}
+.linha{
+    width: 100%;
+    height: 100px;
+    top: 0px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.vacinas{
+    background-color: #fd7f84;
+    color: white;
+    padding: 5px;
+    font-family: 'open';
+    width: 350px;
+    border-radius: 40px;
+}
+.valoresVacinas{
+    background-color: #fcdf78;
+    color: #5271ff;
+    padding: 5px;
+    font-family: 'open';
+    width: 180px;
+    border-radius: 40px;
+}
+.animaisNoMuro{
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    height: 360px;
+    bottom: 0;
+}
+.animaisNoMuro img{
+    width: 100%;
+    height: 100%;
+}
+.pag7{
+    position: absolute;
+    top: 600%;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #d9bbf8;
+}
+.containerGato{
+    position: absolute;
+    width: 45%;
+    height: 100vh;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+.containerVerdeAgua{
+    position: relative;
+    width: 100%;
+    height: 70%;
+    background-color: #1ed5c3;
+}
+.containerAmarelo{
+    position: relative;
+    width: 100%;
+    height: 35%;
+    background-color: #fcdf78;
+}
+.containerAmarelo h1{
+    position: absolute;
+    font-family: 'open';
+    font-size: 9rem;
+    width: 100%;
+    left: 50%;
+    text-align: center;
+    color: #5271ff;
+    transform: translate(-50%);
+    
+}
+.casaAzul{
+    position: absolute;
+    width: 700px;
+    height: 83%;
+    margin: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+.casaAzul img{
+    width: 100%;
+    height: 100%;
+}
+.gatoOlhoAzul{
+    position: absolute;
+    z-index: 3;
+    width: 650px;
+    height: 90%;
+    bottom: -150px;
+    left: 12%;
+}
+.gatoOlhoAzul img{
+    width: 100%;
+    height: 100%;
+}
+.containerHotel{
+    position: relative;
+    width: 800px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    top: 12%;
+}
+.hotelPetTexto{
+    font-family: 'open';
+    font-size: 7rem;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+.containerHotel h2{
+    font-family: 'open';
+    font-size: 1.4rem;
+    color: white;
+    line-height: 40px;
+    width: 400px;
+    height: 100px;
+    left: 25%;
+    top: -10%;
+    text-align: left;
+    position: relative;
+}
+.containerDiaria{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 100%;
+}
+.diaria{
+    position: relative;
+    background-color: white;
+    color: #5271ff;
+    font-family: 'open';
+    font-size: 0.9rem;
+    left: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-left: 10px;
+    width: 50%;
+    border-radius: 40px;
+}
+#diaria2{
+    width: 53%;
+}
+#diaria3{
+    width: 56%;
+}
+.estrelinhaBrancaPag7{
+    width: 100px;
+    top: 45%;
+    left: 73%;
+    z-index: 3;
+    height: 140px;
+    position: absolute;
+    animation: pulsar-estrela2 2.5s linear infinite;
+}
+.estrelinhaBrancaPag7 img{
+    width: 100%;
+    height: 100%;
+}
+.estrelinhaBranca2Pag7{
+    width: 100px;
+    top: 35%;
+    left: 20px;
+    height: 130px;
+    animation: pulsar-estrela2 2.5s linear infinite;
+    position: absolute;
+}
+.estrelinhaBranca2Pag7 img{
+    width: 100%;
+    height: 100%;
+}
+.pag8{
+    position: absolute;
+    top: 700%;
+    margin: 0;
+    width: 100%;
+    background-color: #d9bbf8;
+    height: 100vh;
+}
+.caixas_produtos{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    position: absolute;
+    z-index: 3;
+    top: 10%;
+    margin: 20px;
+    width: 90%;
+    left: 4%;
+    height: 80%;
+}
+.caixaCima{
+    background-color: #5271ff;
+    position: relative;
+    top: 12%;
+    left: 5%;
+    border-radius: 20px;
+    z-index: 4;
+    width: 330px;
+    height: 300px;
+}
+.caixaCima:hover{
+    transform: scale(0.97);
+    transition: 1s;
+}
+.caixaBaixo{
+    width: 330px;
+    height: 300px;
+    background-color: #fd7f84;
+    border-radius: 25px;
+    left: 20px;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    font-family: 'open';
+}
+.racoesEpetiscos{
+    position: relative;
+    top: 25%;
+    left: 10%;
+    font-family: 'open';
+    color: white;
+    font-size: 3.5rem;
+}
+.brinquedos{
+    position: relative;
+    left: 3px;
+    top: 35%;
+    font-family: 'open';
+    color: white;
+    font-size: 3.5rem;
+}
+.acessorios{
+    position: relative;
+    left: 5px;
+    top: 35%;
+    font-family: 'open';
+    color: white;
+    font-size: 3.5rem;
+}
+.produtosHigiene{
+    position: relative;
+    left: 15px;
+    top: 25%;
+    font-family: 'open';
+    color: white;
+    font-size: 3.5rem;
+}
+.medicamentos{
+    position: relative;
+    left: 10px;
+    top: 30%;
+    font-family: 'open';
+    color: white;
+    font-size: 2.5rem;
+}
+.aquarismo{
+    position: relative;
+    left: 15px;
+    top: 35%;
+    font-family: 'open';
+    color: white;
+    font-size: 3.5rem;
+}
+.roedoresEaves{
+    position: relative;
+    left: 30px;
+    top: 30%;
+    font-family: 'open';
+    color: white;
+    font-size: 3rem;
+}
+.itensBeleza{
+    position: relative;
+    left: 40px;
+    top: 20%;
+    font-family: 'open';
+    color: white;
+    font-size: 3.2rem;
+}

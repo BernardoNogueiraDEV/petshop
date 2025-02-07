@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'TC';
+    src: url(../font/TcOctoberRegular-e9jgO.otf);
+}
+@font-face {
+    font-family: 'open';
+    src: url(../font/open-sauce.sans-black.ttf);
+}
+body{
+    background-color: #f3eef8 !important;
+}
+
+.containerProdutosEpetiscos{
+    position: absolute;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2;
+    width: 90%;
+    height: 55vh;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+.tituloProdutos{
+    font-family: 'open';
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    font-size: 3rem;
+    color: #d9bbf8;
+    z-index: 3; /* Certifique-se de que o h1 fique acima do conteúdo rolável */
+}
+.produtos{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    gap: 50px;
+    top: 0;
+    margin-bottom: 50px;
+    height: auto;
+
+}
+.containerProdutosEpetiscos2{
+    position: absolute;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    top: 88%;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%);
+    z-index: 2;
+    width: 90%;
+    margin: 0;
+    height: 55vh;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f4f4f9;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #d9bbf8;
+    border-radius: 10px;
+    border: 2px solid #f4f4f9;
+  }
