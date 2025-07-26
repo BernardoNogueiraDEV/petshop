@@ -1,22 +1,54 @@
 <?php
-session_start(); // Certifique-se de que esta linha esteja apenas uma vez
-if (isset($_POST['nome']) && isset($_POST['email'])) {
-    $_SESSION['nome'] = $_POST['nome'];
-    $_SESSION['email'] = $_POST['email'];
-    
-    // Somente atualiza a foto do perfil se um novo arquivo for enviado
-    if (isset($_FILES['profile_photo']) && $_FILES['profile_photo']['error'] === UPLOAD_ERR_OK) {
-        $_SESSION['profile_photo'] = $_FILES['profile_photo']['name'];
-    }
-}
-// Recupera o e-mail do usuário logado
+session_start();
+require_once __DIR__ . '/php/conexao.php';
+
+// Verifica se o usuário está logado
 if (!isset($_SESSION['email'])) {
     header("Location: registrarLogin.php");
     exit;
 }
+
+// Habilita exceções do PDO (opcional, mas recomendado)
+$conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$conexao->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+// Função para detectar o tipo MIME da imagem
+function getImageMimeType(string $data): string
+{
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->buffer($data);
+    if ($mime === 'application/octet-stream' || $mime === false) {
+        // fallback rudimentar: detecta PNG pelo header ou assume JPEG
+        return (substr($data, 1, 3) === 'PNG') ? 'image/png' : 'image/jpeg';
+    }
+    return $mime;
+}
+
+// Busca a foto de perfil no banco
+$stmt = $conexao->prepare("SELECT profile_photo FROM usuarios WHERE email = ?");
+$stmt->execute([$_SESSION['email']]);
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if ($row === false) {
+    // Usuário não encontrado na tabela
+    die("Erro: usuário “" . htmlspecialchars($_SESSION['email']) . "” não existe.");
+}
+
+// Monta a URL da imagem
+if (!empty($row['profile_photo'])) {
+    $bin       = $row['profile_photo'];
+    $mimeType  = getImageMimeType($bin);
+    $base64    = base64_encode($bin);
+    $profile_photo_url = "data:$mimeType;base64,$base64";
+} else {
+    // Use caminho absoluto para evitar problemas de path relativo
+    $profile_photo_url = './imagens/user_perfil.avif';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +57,10 @@ if (!isset($_SESSION['email'])) {
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/logado.css">
 </head>
+<script>
+  console.log("Profile URL is:", <?= json_encode($profile_photo_url) ?>);
+</script>
+
 <body>
     <header>
         <div class="logo">
@@ -33,19 +69,26 @@ if (!isset($_SESSION['email'])) {
                 <h5>PetShop</h5>
             </a>
         </div>
+
         <div class="menu">
             <ul><a href="#pag3">SERVIÇOS</a></ul>
             <ul><a href="#pag2">SOBRE NÓS</a></ul>
             <ul><a href="#pag8">PRODUTOS</a></ul>
         </div>
-        <div class="login">
+
+        <div class="login" style="display: flex; flex-direction: row;">
+            <div class="carrinho">
+                <a href="./carrinho.php">
+                    <img src="./imagens/carrinho.png" alt="Carrinho de Compras">
+                </a>
+            </div>
             <div class="imgConta">
                 <a href="./perfil.php">
-                    <?php if (isset($_SESSION['profile_photo']) && file_exists($_SESSION['profile_photo'])): ?>
-                        <img src="<?php echo htmlspecialchars($_SESSION['profile_photo']); ?>" alt="avatar da conta" id="photoPreview">
-                    <?php else: ?>
-                        <img src="./imagens/user_perfil.avif" alt="avatar padrão" id="photoPreview"> <!-- Imagem padrão -->
-                    <?php endif; ?>
+                    <img
+                        src="<?= htmlspecialchars($profile_photo_url) ?>"
+                        alt="Foto de Perfil"
+                        class="fotoPerfil"
+                        onerror="this.onerror=null; this.src='./imagens/user_perfil.avif';" />
                 </a>
             </div>
         </div>
@@ -271,7 +314,7 @@ if (!isset($_SESSION['email'])) {
                 Hotel pet
             </h1>
             <h2>
-                Viaje com tranquilidade, nós cuidados do seu pet. Oferecemos diversão, conforto e segurança. 
+                Viaje com tranquilidade, nós cuidados do seu pet. Oferecemos diversão, conforto e segurança.
             </h2>
             <div class="containerDiaria">
                 <div class="diaria">
@@ -290,31 +333,48 @@ if (!isset($_SESSION['email'])) {
         <div class="bolaBranca"></div>
         <div class="caixas_produtos">
             <div class="caixaCima" id="" onclick="racaoEpetisco()">
-                <div class="caixaBaixo" id=""><h1 class="racoesEpetiscos">Rações e Petiscos</h1></div>
+                <div class="caixaBaixo" id="">
+                    <h1 class="racoesEpetiscos">Rações e Petiscos</h1>
+                </div>
             </div>
             <div class="caixaCima" id="" onclick="brinquedos()">
-                <div class="caixaBaixo" id=""><h1 class="brinquedos">Brinquedos</h1></div>
+                <div class="caixaBaixo" id="">
+                    <h1 class="brinquedos">Brinquedos</h1>
+                </div>
             </div>
             <div class="caixaCima" id="" onclick="acessorios()">
-                <div class="caixaBaixo" id=""><h1 class="acessorios">Acessórios</h1></div>
+                <div class="caixaBaixo" id="">
+                    <h1 class="acessorios">Acessórios</h1>
+                </div>
             </div>
             <div class="caixaCima" id="" onclick="higiene()">
-                <div class="caixaBaixo" id=""><h1 class="produtosHigiene">Produtos de higiene</h1></div>
+                <div class="caixaBaixo" id="">
+                    <h1 class="produtosHigiene">Produtos de higiene</h1>
+                </div>
             </div>
             <div class="caixaCima" id="" onclick="medicamentoEsuplemento()">
-                <div class="caixaBaixo" id=""><h1 class="medicamentos">Medicamentos e suplementos</h1></div>
+                <div class="caixaBaixo" id="">
+                    <h1 class="medicamentos">Medicamentos e suplementos</h1>
+                </div>
             </div>
             <div class="caixaCima" id="" onclick="aquarismo()">
-                <div class="caixaBaixo" id=""><h1 class="aquarismo">Aquarismo</h1></div>
+                <div class="caixaBaixo" id="">
+                    <h1 class="aquarismo">Aquarismo</h1>
+                </div>
             </div>
             <div class="caixaCima" id="" onclick="roedores()">
-                <div class="caixaBaixo" id=""><h1 class="roedoresEaves">Roedores e Aves</h1></div>
+                <div class="caixaBaixo" id="">
+                    <h1 class="roedoresEaves">Roedores e Aves</h1>
+                </div>
             </div>
             <div class="caixaCima" id="" onclick="cuidadoEbeleza()">
-                <div class="caixaBaixo" id=""><h1 class="itensBeleza">Itens de cuidado e beleza</h1></div>
+                <div class="caixaBaixo" id="">
+                    <h1 class="itensBeleza">Itens de cuidado e beleza</h1>
+                </div>
             </div>
         </div>
     </div>
     <script src="./js/index.js"></script>
 </body>
+
 </html>

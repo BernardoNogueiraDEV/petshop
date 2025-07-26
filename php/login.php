@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['nome'] = $user['nome'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['cpf'] = $user['cpf']; // Pode ser útil armazenar o CPF também
+            $_SESSION['id_usuario'] = $user['id']; // Add id_usuario to session
             $_SESSION['profile_photo'] = $user['profile_photo']; // Store profile photo path
             $_SESSION['cover_photo'] = $user['cover_photo']; // Store cover photo path
             header("Location: ../logado.php");

@@ -2,15 +2,22 @@
     font-family: 'TC';
     src: url(../font/TcOctoberRegular-e9jgO.otf);
 }
+
 @font-face {
     font-family: 'open';
     src: url(../font/open-sauce.sans-black.ttf);
 }
-body{
+
+body {
     background-color: #f3eef8 !important;
 }
 
-.containerProdutosEpetiscos{
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+.containerProdutosEpetiscos {
     position: absolute;
     display: grid;
     grid-template-rows: 1fr 5fr;
@@ -23,16 +30,19 @@ body{
     overflow-y: hidden;
     overflow-x: auto;
 }
-.tituloProdutos{
+
+.tituloProdutos {
     font-family: 'open';
     position: absolute;
     top: 80px;
     left: 80px;
     font-size: 3rem;
     color: #d9bbf8;
-    z-index: 3; /* Certifique-se de que o h1 fique acima do conteúdo rolável */
+    z-index: 3;
+    /* Certifique-se de que o h1 fique acima do conteúdo rolável */
 }
-.produtos{
+
+.produtos {
     display: flex;
     position: relative;
     flex-direction: row;
@@ -42,7 +52,8 @@ body{
     height: auto;
 
 }
-.containerProdutosEpetiscos2{
+
+.containerProdutosEpetiscos2 {
     position: absolute;
     display: grid;
     grid-template-rows: 1fr 5fr;
@@ -52,21 +63,54 @@ body{
     transform: translate(-50%);
     z-index: 2;
     width: 90%;
-    margin: 0;
+    margin: 0 0 20px 0;
     height: 55vh;
     overflow-y: hidden;
     overflow-x: auto;
 }
+
 ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
     background: #f4f4f9;
-  }
-  
-  ::-webkit-scrollbar-thumb {
+}
+
+::-webkit-scrollbar-thumb {
     background-color: #d9bbf8;
     border-radius: 10px;
     border: 2px solid #f4f4f9;
-  }
+}
+
+#imageOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+#closeOverlay {
+    align-self: flex-end;
+    margin: 10px 20px 0 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#overlayImage {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    cursor: default;
+}

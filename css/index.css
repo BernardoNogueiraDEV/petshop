@@ -8,10 +8,12 @@
 }
 body {
     margin: 0;
+
 }
 html {
     scroll-behavior: smooth;
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
 }
 .pag1 {

@@ -14,12 +14,22 @@ create table usuarios
     cidade varchar(100) not null,
     estado varchar(100) not null,
     senha varchar(100) not null,
-    profile_photo VARCHAR(255) DEFAULT './imagens/user_perfil.avif', -- Caminho da foto de perfil
-    cover_photo VARCHAR(255) DEFAULT './imagens/defalt_fundo_perfil_petshop.jpg',    -- Caminho da foto de capa
+    profile_photo longblob,
+    cover_photo longblob,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(cpf)
 );
 SELECT * FROM usuarios;
+DESCRIBE usuarios profile_photo;
+ALTER TABLE usuarios
+  MODIFY profile_photo LONGBLOB
+  NULL DEFAULT NULL;
+  
+  ALTER TABLE usuarios
+  MODIFY cover_photo MEDIUMBLOB
+  NULL DEFAULT NULL;
+
+
 
 DROP TABLE usuarios;
 
@@ -38,6 +48,17 @@ create table pets
     id_usuario int,
     foreign key(id_usuario) references usuarios(id)
 );
+
+create table carrinho
+(
+    id int auto_increment primary key,
+    produto varchar(100) not null,
+    preco decimal(10, 2) not null,
+    quantidade int not null,
+    id_usuario int,
+    foreign key(id_usuario) references usuarios(id)
+);
+SELECT * FROM carrinho;
 
 SELECT * FROM pets;
 TRUNCATE TABLE pets;

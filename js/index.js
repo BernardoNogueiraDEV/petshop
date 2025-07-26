@@ -74,5 +74,26 @@ function registrar(){
     window.location.href = './registrarLogin.php'
 }
 function racaoEpetisco(){
-    window.location.href = './produtosLogado/racaoEpetisco.php'
+    window.location.href = './loja/racaoEpetisco.php';
+}
+function brinquedos(){
+    window.location.href = './loja/brinquedos.php';
+}
+function acessorios(){
+    window.location.href = './loja/acessorios.php';
+}
+function higiene(){
+    window.location.href = './loja/higiene.php';
+}
+function medicamentoEsuplemento(){
+    window.location.href = './loja/medicamentoEsuplementos.php';
+}
+function aquarismo(){
+    window.location.href = './loja/aquarismo.php';
+}
+function roedores(){
+    window.location.href = './loja/roedores.php';
+}
+function cuidadoEbeleza(){
+    window.location.href = './loja/cuidadoEbeleza.php';
 }
