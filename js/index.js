@@ -5,6 +5,9 @@ let conteudo = `No PetShop Amigo Fiel, nosso compromisso é cuidar com carinho e
 let index = 0;
 const h1 = document.getElementById('h1Escrever');
 
+function registrar(){
+  window.location.href = '../registrarLogin.php';
+}
 function escrever(){
     if (h1) { 
         if(index <= conteudo.length){
