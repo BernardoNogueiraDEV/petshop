@@ -76,7 +76,7 @@ if (!empty($row['profile_photo'])) {
             <ul><a href="#pag8">PRODUTOS</a></ul>
         </div>
 
-        <div class="login" style="display: flex; flex-direction: row;">
+        <div class="login">
             <div class="carrinho">
                 <a href="./carrinho.php">
                     <img src="./imagens/carrinho.png" alt="Carrinho de Compras">

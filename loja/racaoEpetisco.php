@@ -58,7 +58,7 @@ if (!empty($resultado['profile_photo'])) {
             <ul><a href="../logado.php#pag8">PRODUTOS</a></ul>
         </div>
 
-        <div class="login" style="display: flex; flex-direction: row;">
+        <div class="login">
             <div class="carrinho">
                 <a href="../carrinho.php" class="carrinho">
                     <img src="../imagens/carrinho.png" alt="Carrinho de Compras">
