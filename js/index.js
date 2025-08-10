@@ -6,7 +6,7 @@ let index = 0;
 const h1 = document.getElementById('h1Escrever');
 
 function registrar(){
-  window.location.href = '../registrarLogin.php';
+  window.href = '../registrarLogin.php';
 }
 function escrever(){
     if (h1) { 
